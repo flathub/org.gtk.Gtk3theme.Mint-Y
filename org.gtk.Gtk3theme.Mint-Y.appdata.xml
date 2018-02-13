@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="runtime">
+    <id>org.gtk.Gtk3theme.Mint-Y</id>
+    <metadata_license>CC0-1.0</metadata_license>
+    <name>Mint-Y Gtk Theme</name>
+    <summary>Mint-Y theme</summary>
+    <description>
+        <p>Mint-Y theme</p>
+    </description>
+    <url type="homepage">https://github.com/linuxmint/mint-y-theme</url>
+</component>

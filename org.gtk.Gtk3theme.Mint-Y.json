@@ -1,0 +1,43 @@
+{
+  "id": "org.gtk.Gtk3theme.Mint-Y",
+  "branch": "3.22",
+  "runtime": "org.gnome.Sdk",
+  "build-extension": true,
+  "sdk": "org.gnome.Sdk",
+  "runtime-version": "3.26",
+  "appstream-compose": false,
+  "separate-locales": false,
+  "modules": [
+    {
+      "name": "Mint-Y",
+      "buildsystem": "simple",
+      "build-commands": [
+        "install -Dm644 usr/share/themes/Mint-Y/index.theme /usr/share/runtime/share/themes/Mint-Y/index.theme",
+        "install -Dm644 usr/share/themes/Mint-Y/gtk-3.0/gtk.css /usr/share/runtime/share/themes/Mint-Y/gtk-3.0",
+        "install -Dm644 --target-directory=/usr/share/runtime/share/themes/Mint-Y/gtk-3.0/assets usr/share/themes/Mint-Y/gtk-3.0/assets/*"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/linuxmint/mint-y-theme.git",
+          "commit": "7d5dae986c2a673575cc525ba81044992c91e95c"
+        }
+      ]
+    },
+    {
+      "name": "appdata",
+      "buildsystem": "simple",
+      "build-commands": [
+        "mkdir -p ${FLATPAK_DEST}/share/appdata",
+        "cp org.gtk.Gtk3theme.Mint-Y.appdata.xml ${FLATPAK_DEST}/share/appdata",
+        "appstream-compose --basename=org.gtk.Gtk3theme.Mint-Y --prefix=${FLATPAK_DEST} --origin=flatpak org.gtk.Gtk3theme.Mint-Y"
+      ],
+      "sources": [
+        {
+          "type": "file",
+          "path": "org.gtk.Gtk3theme.Mint-Y.appdata.xml"
+        }
+      ]
+    }
+  ]
+}
