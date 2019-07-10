@@ -12,15 +12,18 @@
       "name": "Mint-Y",
       "buildsystem": "simple",
       "build-commands": [
+        "ar x mint-themes.deb",
+        "tar -xf data.tar.xz",
         "install -Dm644 usr/share/themes/Mint-Y/index.theme /usr/share/runtime/share/themes/Mint-Y/index.theme",
         "install -Dm644 usr/share/themes/Mint-Y/gtk-3.0/gtk.css /usr/share/runtime/share/themes/Mint-Y/gtk-3.0",
         "install -Dm644 --target-directory=/usr/share/runtime/share/themes/Mint-Y/gtk-3.0/assets usr/share/themes/Mint-Y/gtk-3.0/assets/*"
       ],
       "sources": [
         {
-          "type": "git",
-          "url": "https://github.com/linuxmint/mint-y-theme.git",
-          "commit": "7d5dae986c2a673575cc525ba81044992c91e95c"
+          "type": "file",
+          "url": "https://github.com/linuxmint/mint-themes/releases/download/1.8.0/mint-themes_1.8.0_all.deb",
+          "dest-filename": "mint-themes.deb",
+          "sha256": "4f4a50608721091e24b9a9798d177b59e0fb9fd276d7907dba314e937e62743c"
         }
       ]
     },
