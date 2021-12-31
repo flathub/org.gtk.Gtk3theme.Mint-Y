@@ -21,9 +21,9 @@
       "sources": [
         {
           "type": "file",
-          "url": "https://github.com/linuxmint/mint-themes/releases/download/1.8.0/mint-themes_1.8.0_all.deb",
+          "url": "https://github.com/linuxmint/mint-themes/releases/download/1.9.6/mint-themes_1.9.6_all.deb",
           "dest-filename": "mint-themes.deb",
-          "sha256": "4f4a50608721091e24b9a9798d177b59e0fb9fd276d7907dba314e937e62743c"
+          "sha256": "af6516d1dd83cb7a5bcc3547384848cdfa1cc27d4acda01b1e9b209211f62c25"
         }
       ]
     },
