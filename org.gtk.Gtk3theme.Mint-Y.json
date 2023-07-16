@@ -2,28 +2,51 @@
   "id": "org.gtk.Gtk3theme.Mint-Y",
   "branch": "3.22",
   "runtime": "org.freedesktop.Platform",
-  "runtime-version": "18.08",
+  "runtime-version": "22.08",
   "sdk": "org.freedesktop.Sdk",
   "build-extension": true,
   "appstream-compose": false,
   "separate-locales": false,
+  "build-options":
+  {
+    "append-path": "/usr/share/runtime/share/themes/Mint-Y/gtk-3.0/bin"
+  },
   "modules": [
     {
       "name": "Mint-Y",
       "buildsystem": "simple",
       "build-commands": [
-        "ar x mint-themes.deb",
-        "tar -xf data.tar.xz",
+        "./generate-themes.py",
         "install -Dm644 usr/share/themes/Mint-Y/index.theme /usr/share/runtime/share/themes/Mint-Y/index.theme",
-        "install -Dm644 usr/share/themes/Mint-Y/gtk-3.0/gtk.css /usr/share/runtime/share/themes/Mint-Y/gtk-3.0",
+        "install -Dm644 usr/share/themes/Mint-Y/gtk-3.0/gtk*.css /usr/share/runtime/share/themes/Mint-Y/gtk-3.0",
         "install -Dm644 --target-directory=/usr/share/runtime/share/themes/Mint-Y/gtk-3.0/assets usr/share/themes/Mint-Y/gtk-3.0/assets/*"
       ],
       "sources": [
         {
-          "type": "file",
-          "url": "https://github.com/linuxmint/mint-themes/releases/download/1.9.6/mint-themes_1.9.6_all.deb",
-          "dest-filename": "mint-themes.deb",
-          "sha256": "af6516d1dd83cb7a5bcc3547384848cdfa1cc27d4acda01b1e9b209211f62c25"
+          "type": "git",
+          "url": "https://github.com/linuxmint/mint-themes.git",
+          "commit": "7b9383dfd9dbef934904c61b9adf338b8e9eb5af"
+        }
+      ],
+      "modules": [
+        {
+          "name": "sass",
+          "buildsystem": "simple",
+          "cleanup": [
+            "*"
+          ],
+          "build-commands": [
+            "install -D -m755 sass ${FLATPAK_DEST}/bin/sassc",
+            "install -D -m755 src/dart ${FLATPAK_DEST}/bin/src/dart",
+            "install -D -m755 src/sass.snapshot ${FLATPAK_DEST}/bin/src/sass.snapshot"
+          ],
+          "sources": [
+            {
+              "type": "archive",
+              "url": "https://github.com/sass/dart-sass/releases/download/1.63.6/dart-sass-1.63.6-linux-x64.tar.gz",
+              "sha256": "de6cbea03b18c921c5829030c777321d6c38144035ebccd2ee4deaff9c333ded"
+            }
+          ]
         }
       ]
     },
